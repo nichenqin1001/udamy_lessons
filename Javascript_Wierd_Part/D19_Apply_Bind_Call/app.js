@@ -7,12 +7,26 @@ var person = {
     }
 };
 
+var anotherPerson = function () {
+    console.log(this);
+};
+
+anotherPerson();
+anotherPerson.bind(person);
+anotherPerson.apply(person);
+anotherPerson.call(person);
+
+var getFullName = function () {
+    console.log('this is window function');
+};
+
 var logName = function (lang1, lang2) {
+    console.log('----------------');
     console.log(this);
     console.log('arguments:' + lang1 + ' ' + lang2);
     console.log('log:' + this.getFullName());
     console.log('----------------');
-}.bind(person);
+};
 
 var logPersonName = logName.bind(person);
 
